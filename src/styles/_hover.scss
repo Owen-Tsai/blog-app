@@ -1,0 +1,46 @@
+@mixin hover {
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0);
+    background-color: #000000;
+
+    transition: transform 0.3s;
+  }
+
+  &:not(.disabled):not([disabled]):hover {
+    &:after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+@mixin active {
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(1);
+    background-color: #000000;
+  }
+}
+
+@mixin shadow-hover {
+  transition: all .3s;
+
+  &:hover {
+    box-shadow: -5px 5px 0 #000000;
+    transform: translate(5px, -5px);
+  }
+}

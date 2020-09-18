@@ -1,0 +1,70 @@
+@import "var";
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  transition: background-color ease-in .3s;
+}
+
+::selection {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+*::-webkit-scrollbar-track
+{
+  background-color: #ffffff;
+}
+
+*::-webkit-scrollbar
+{
+  width: 8px;
+  background-color: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb
+{
+  background-color: mix(#ffffff, #000000, 80%);
+}
+
+@each $name, $value in $themes {
+  body[data-theme="#{$name}"] {
+    background-color: $value;
+
+    *::-webkit-scrollbar-track, &::-webkit-scrollbar-track
+    {
+      background-color: $value;
+    }
+
+    *::-webkit-scrollbar, &::-webkit-scrollbar
+    {
+      width: 8px;
+      background-color: $value;
+    }
+
+    *::-webkit-scrollbar-thumb, &::-webkit-scrollbar-thumb
+    {
+      background-color: mix($value, #000000, 80%);
+    }
+
+    header {
+      background-color: $value;
+    }
+  }
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.view {
+  max-width: $view-max-width;
+  margin: 80px auto 40px;
+}
