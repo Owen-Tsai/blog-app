@@ -1,0 +1,139 @@
+@import "article-shared";
+@import "hover";
+
+.story-detail-view {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  .story {
+    font-size: 20px;
+    width: 664px;
+
+    .article-header {
+      h1 {
+        margin: 0;
+        font-size: 3.4rem;
+        font-weight: 100;
+        text-align: center;
+      }
+
+      p {
+        margin-top: 1rem;
+        font-weight: 100;
+        text-align: center;
+      }
+
+      .tags {
+        margin-top: 1rem;
+        text-align: center;
+
+        .tag {
+          margin-left: 10px;
+        }
+      }
+    }
+
+    .article-divider {
+      border: none;
+      border-bottom: 1px dashed $dark-color;
+      width: 200px;
+      margin: 4rem auto;
+    }
+
+    .content {
+      margin-top: 5rem;
+      line-height: 1.5;
+      font-weight: 300;
+
+      p {
+        margin-top: 2rem;
+      }
+
+      @include article-content;
+
+      blockquote {
+        p {
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+
+  .story-side-menu {
+    flex: 0 0 240px;
+    position: sticky;
+    top: 120px;
+    border: 2px solid $dark-color;
+
+    .toc {
+      ul {
+        padding-inline-start: 2rem;
+        list-style: none;
+
+        a {
+          line-height: 1.8;
+          @include hover;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+body[data-theme="dark"] {
+  .article-divider {
+    border-bottom: 1px dashed $light-color !important;
+  }
+
+  .story-side-menu {
+    border-color: $light-color;
+
+    .toc {
+      a {
+        @include hover-dark;
+      }
+    }
+  }
+
+  .content {
+    font-weight: 100 !important;
+    @include article-content-dark;
+  }
+}
+
+@media screen and (max-width: 801px) {
+  .story-detail-view {
+    flex-direction: column;
+
+    .story {
+      width: 90vw;
+      margin: 0 auto;
+
+      .article-header {
+        h1 {
+          font-size: 2.2rem;
+          font-weight: 300;
+        }
+
+        p {
+          font-size: 1rem;
+          font-weight: 300;
+        }
+
+        .tags .tag {
+          font-size: 12px;
+          padding: 4px 8px;
+        }
+      }
+
+      .content {
+        font-size: 18px;
+      }
+    }
+
+    .story-side-menu {
+      display: none;
+    }
+  }
+}

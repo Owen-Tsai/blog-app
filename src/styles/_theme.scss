@@ -1,0 +1,33 @@
+@import "var";
+
+body[data-theme="dark"] {
+  background-color: $dark-color;
+  color: $light-color;
+
+  ::selection {
+    background-color: $light-color;
+    color: $dark-color;
+  }
+
+  *::-webkit-scrollbar-track, &::-webkit-scrollbar-track
+  {
+    background-color: $dark-color;
+  }
+
+  *::-webkit-scrollbar, &::-webkit-scrollbar
+  {
+    width: 6px;
+    height: 6px;
+    background-color: $light-color;
+  }
+
+  *::-webkit-scrollbar-thumb, &::-webkit-scrollbar-thumb
+  {
+    background-color: mix($dark-color, $light-color, 80%);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  background-color: $dark-color;
+  color: $light-color;
+}

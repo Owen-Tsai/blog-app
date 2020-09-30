@@ -1,0 +1,108 @@
+// editor / create view style
+@import "hover";
+@import "article-shared";
+
+.preview-area {
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  @include article-content;
+
+  // override for better editing purpose
+  blockquote {
+    margin: 0;
+  }
+}
+
+
+.editor-toolbar {
+  height: 60px;
+  border: 2px solid $dark-color;
+  border-bottom-width: 1px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 60px;
+  z-index: 99;
+
+  .left {
+    display: flex;
+    align-items: center;
+
+    input {
+      outline: none;
+      border: 1px solid $dark-color;
+      color: $dark-color;
+
+      &:focus {
+        border-width: 2px;
+      }
+    }
+  }
+
+  .right {
+    font-size: 14px;
+
+    .mode-btn {
+      margin-left: 10px;
+      cursor: pointer;
+      @include hover;
+
+      &.active {
+        @include active;
+      }
+    }
+  }
+
+  label {
+    font-size: 14px;
+    span {
+      margin-right: 10px;
+    }
+    input {
+      height: 40px;
+      padding: 0 10px;
+      width: 240px;
+    }
+  }
+
+  .controls {
+    margin-left: 1rem;
+  }
+}
+
+.image-bed {
+  position: fixed;
+  bottom: 120px;
+  right: 120px;
+  border: 2px solid $dark-color;
+  width: 500px;
+  background-color: $light-color;
+}
+
+body[data-theme="dark"] {
+  .editor-toolbar {
+    border-color: $light-color;
+  }
+  .image-bed {
+    background-color: $dark-color;
+    border-color: $light-color;
+  }
+  .left {
+    input {
+      background-color: lighten($dark-color, 10%);
+      border-color: $light-color;
+    }
+  }
+  .right {
+    font-size: 14px;
+
+    .mode-btn {
+      margin-left: 10px;
+      cursor: pointer;
+      @include hover-dark;
+    }
+  }
+}

@@ -1,0 +1,232 @@
+@import "var";
+
+@mixin article-content {
+  h1 {
+    font-size: 2em;
+  }
+  h2 {
+    font-size: 1.6em;
+  }
+  h3 {
+    font-size: 1.2em;
+  }
+  h4 {
+    font-size: 1em;
+  }
+  strong, s {
+    margin: 0 3px;
+  }
+
+  em {
+    margin: 0 3px;
+
+    strong {
+      margin: 0;
+    }
+  }
+
+  table {
+    width: 100%;
+    margin-top: 2rem;
+    font-size: 1rem;
+    border-collapse: collapse;
+
+    td {
+      border-bottom: 1px solid $dark-color;
+      height: 36px;
+    }
+
+    th {
+      border-bottom: 2px solid $dark-color;
+      height: 40px;
+    }
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    cursor: zoom-in;
+  }
+
+  pre {
+    background-color: mix($dark-color, $light-color, 92%);
+    color: $light-color;
+    padding: 1rem;
+
+    code {
+      background-color: unset;
+      color: inherit;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  code {
+    background-color: mix($dark-color, $light-color, 92%);
+    color: $light-color;
+    padding: 2px 4px;
+    margin: 0 4px;
+  }
+
+  blockquote {
+    padding: 0.5rem 2rem;
+    margin: 2rem 6rem;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 2;
+    font-style: italic;
+    text-indent: 2.5rem;
+
+    @media screen and (max-width: 801px) {
+      margin: 0;
+    }
+
+    &:before {
+      content: "“";
+      position: absolute;
+      font-size: 5em;
+      font-weight: 900;
+      top: -24px;
+      left: -96px;
+      z-index: 1;
+      color: rgba($dark-color, 0.2);
+    }
+  }
+
+  a {
+    margin: 0 3px;
+    border-bottom: 1px solid $dark-color;
+
+    &:hover {
+      border-width: 2px;
+    }
+  }
+
+  h1, h2, h3, h4 {
+    a {
+      margin: 0;
+    }
+  }
+
+  details[open] summary ~ * {
+    animation: open 0.3s ease-in-out;
+  }
+
+  @keyframes open {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details summary {
+    width: 100%;
+    padding: 0.5rem 0;
+    border-top: 1px solid $dark-color;
+    border-bottom: 1px solid $dark-color;
+    position: relative;
+    cursor: pointer;
+    font-weight: 300;
+    list-style: none;
+    box-sizing: border-box;
+  }
+
+  details[open] {
+    border-bottom: 1px solid $dark-color;
+  }
+
+  details summary:after {
+    content: "＋";
+    color: $dark-color;
+    position: absolute;
+    line-height: 0;
+    margin-top: 0.6em;
+    right: 0;
+    font-size: 1.2em;
+    font-weight: 200;
+    transform-origin: center;
+    transition: 200ms linear;
+  }
+  details[open] summary:after {
+    content: "×";
+  }
+  details summary {
+    outline: 0;
+  }
+
+  .tip {
+    padding: 0.5rem 1rem;
+    border-left: 4px solid $dark-color;
+    margin-bottom: 1rem;
+    position: relative;
+
+    &:before {
+      content: "!";
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      color: $light-color;
+      background-color: $dark-color;
+      position: absolute;
+      left: -12px;
+      top: 10px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 500;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  ul, ol {
+    margin-bottom: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .toc-original {
+    display: none;
+  }
+}
+
+@mixin article-content-dark {
+  table th, table td {
+    border-color: $light-color !important;
+  }
+  pre, code {
+    background-color: mix($dark-color, $light-color, 80%) !important;
+  }
+  blockquote:before {
+    color: rgba($light-color, 0.2) !important;
+  }
+  a {
+    border-bottom: 1px solid $light-color !important;
+    &:hover {
+      border-width: 2px !important;
+    }
+  }
+  details summary {
+    border-color: $light-color !important;
+    &:after {
+      color: $light-color !important;
+    }
+  }
+  details[open] {
+    border-color: $light-color !important;
+  }
+  .tip {
+    border-color: $light-color !important;
+    &:before {
+      color: $dark-color !important;
+      background-color: $light-color !important;
+    }
+  }
+}

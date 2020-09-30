@@ -1,6 +1,11 @@
 <template>
   <label class="c-radio">
-    <input type="radio" :name="name" :checked="checked">
+    <input
+      type="radio"
+      :name="name"
+      :value="value"
+      v-model="model"
+    >
     <span class="design"></span>
     <span class="text">
       <slot></slot>
@@ -13,7 +18,17 @@
     name: 'CRadio',
     props: {
       name: String,
-      checked: Boolean
+      value: Boolean
+    },
+    computed: {
+      model: {
+        get() {
+          return this.value
+        },
+        set(val) {
+          this.$emit('input', val);
+        }
+      }
     }
   }
 </script>
@@ -49,6 +64,7 @@
     border: 2px solid #000000;
     margin-right: 16px;
     position: relative;
+    box-sizing: content-box;
   }
 
   .design::before,

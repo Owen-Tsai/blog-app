@@ -5,19 +5,24 @@
       v-for="(project, i) in projectList" :key="`project-${i}`"
     >
       <details>
-        <summary>{{ project.name }}</summary>
+        <summary>{{ project.title }}</summary>
         <section>
           <div class="tags">
-            <c-tag class="tag">Django</c-tag>
-            <c-tag class="tag">Vue.js</c-tag>
-            <c-tag class="tag">Web 前端</c-tag>
+            <c-tag
+              class="tag"
+              small
+              v-for="(tag, i) in project.tags" :key="`tag-${i}`"
+            >{{ tag }}</c-tag>
           </div>
           <div class="info">
-            <p>2020.6 - 2020.9</p>
-            <p>前端开发 / 后端开发</p>
+            <p>{{ project.date }}</p>
+            <p>{{ project.role }}</p>
           </div>
           <div class="detail">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci beatae commodi doloribus ducimus earum error facilis hic, iusto laboriosam non, officia provident quam qui quisquam quod repellat sed sit voluptatem.</p>
+            <p>{{ project.intro }}</p>
+            <ul>
+              <li v-for="(line, i) in project.duties" :key="`item-${i}`">{{ line }}</li>
+            </ul>
           </div>
         </section>
       </details>
@@ -27,41 +32,35 @@
 
 <script>
   import CTag from './Tag'
+  import projectList from '../../public/static-data/project-exp.json'
+
   export default {
     name: 'ProjectListPanel',
     components: { CTag },
-    /*props: {
-      projectList: Array,
-    }*/
     data: () => ({
-      projectList: [
-        { id: 1, name: '基于 Vue.js 的智能家居系统原型' },
-        { id: 2, name: '四川省高校毕业生就业数据可视化分析系统' },
-        { id: 3, name: '自贡市自流井区人民法院自主服务系统' },
-        { id: 4, name: '山东大学基础教育集团移动智慧校园' },
-        { id: 5, name: '基于 Vue.js 的智能家居系统原型' },
-        { id: 6, name: '基于 Unity 的 3D 远程虚拟实验操作系统' },
-      ],
+      projectList: projectList,
       currentSelected: null
     }),
-    methods: {
-      changeActiveItem(id, index) {
-        // TODO: send request to fetch project detail with id
-        this.currentSelected = index
-      }
-    },
   }
 </script>
 
 <style lang="scss" scoped>
   @import "../styles/hover";
+  @import "../styles/var";
 
   .project-list-panel {
     box-sizing: border-box;
     height: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
-    padding: 2rem;
+
+    .info {
+      margin-top: 2rem;
+      p {
+        margin: 0;
+        font-size: 0.85rem;
+      }
+    }
 
     details[open] summary ~ * {
       animation: open 0.3s ease-in-out;
@@ -82,7 +81,7 @@
     details summary {
       width: 100%;
       padding: 0.5rem 0;
-      border-top: 1px solid black;
+      border-top: 1px solid $dark-color;
       position: relative;
       cursor: pointer;
       font-size: 1.2rem;
@@ -93,7 +92,7 @@
 
     details summary:after {
       content: "＋";
-      color: black;
+      color: $dark-color;
       position: absolute;
       font-size: 1.75rem;
       line-height: 0;
@@ -117,6 +116,39 @@
 
     .tag {
       margin-right: 10px;
+    }
+  }
+
+  @media screen and (max-width: 810px) {
+    .project-list-panel {
+      overflow-y: hidden;
+      overflow-x: hidden;
+      height: auto;
+      border: none;
+      padding: 0;
+      box-sizing: border-box;
+
+      details summary {
+        font-size: 1rem;
+        padding-right: 30px;
+      }
+
+      details summary:after {
+        font-size: 1.2rem;
+      }
+
+      .tag {
+        margin-right: 6px;
+      }
+    }
+  }
+
+  body[data-theme="dark"] {
+    details summary {
+      border-color: $light-color;
+    }
+    details summary:after {
+      color: $light-color;
     }
   }
 </style>

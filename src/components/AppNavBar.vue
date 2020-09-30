@@ -12,12 +12,20 @@
           class="nav-item"
           :to="nav.link"
         >{{ nav.text }}</router-link>
+        <router-link
+          class="nav-item" v-if="isAuthenticated"
+          to="/y/" :class="{'force-active': $route.path.includes('/y/')}"
+        >
+          管理
+        </router-link>
       </div>
     </nav>
   </header>
 </template>
 
 <script>
+  import { authenticated } from '../lib/store'
+
   export default {
     name: 'NavBar',
     data: () => ({
@@ -30,12 +38,12 @@
     computed: {
       back() {
         switch (this.$route.name) {
-          case 'article':
+          case 'article-content':
             return {
               link: '/articles',
               text: '返回文章列表'
             }
-          case 'work':
+          case 'works-content':
             return {
               link: '/works',
               text: '返回作品列表'
@@ -46,6 +54,9 @@
               text: '返回首页'
             }
         }
+      },
+      isAuthenticated() {
+        return authenticated()
       }
     }
   }
@@ -65,9 +76,11 @@
     z-index: 99;
     width: 100%;
     top: 0;
+    background-color: $light-color;
+    transition: background-color ease-in-out .3s;
 
     nav {
-      width: 1100px;
+      width: $view-max-width;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -91,6 +104,29 @@
 
       &.router-link-exact-active {
         @include active;
+      }
+      &.force-active {
+        @include active;
+      }
+    }
+  }
+
+  body[data-theme="dark"] {
+    header {
+      background-color: $dark-color;
+
+      .back-btn {
+        @include hover-dark;
+      }
+      .nav-item {
+        @include hover-dark;
+
+        &.router-link-exact-active {
+          @include active;
+        }
+        &.force-active {
+          @include active;
+        }
       }
     }
   }

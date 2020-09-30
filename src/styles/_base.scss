@@ -1,57 +1,40 @@
 @import "var";
 
+/*
+  base elements
+*/
+
 body {
   overflow-x: hidden;
+  overflow-y: scroll;
   margin: 0;
   padding: 0;
-  transition: background-color ease-in .3s;
+  background-color: $light-color;
+  color: $dark-color;
+  transition: background-color ease-in-out .3s;
+
+  *::-webkit-scrollbar-track, &::-webkit-scrollbar-track {
+    background-color: $light-color;
+  }
+
+  *::-webkit-scrollbar, &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: $light-color;
+  }
+
+  *::-webkit-scrollbar-thumb, &::-webkit-scrollbar-thumb {
+    background-color: mix($dark-color, $light-color, 80%);
+  }
+}
+
+* {
+  box-sizing: border-box;
 }
 
 ::selection {
-  background-color: #000000;
-  color: #ffffff;
-}
-
-*::-webkit-scrollbar-track
-{
-  background-color: #ffffff;
-}
-
-*::-webkit-scrollbar
-{
-  width: 8px;
-  background-color: #ffffff;
-}
-
-*::-webkit-scrollbar-thumb
-{
-  background-color: mix(#ffffff, #000000, 80%);
-}
-
-@each $name, $value in $themes {
-  body[data-theme="#{$name}"] {
-    background-color: $value;
-
-    *::-webkit-scrollbar-track, &::-webkit-scrollbar-track
-    {
-      background-color: $value;
-    }
-
-    *::-webkit-scrollbar, &::-webkit-scrollbar
-    {
-      width: 8px;
-      background-color: $value;
-    }
-
-    *::-webkit-scrollbar-thumb, &::-webkit-scrollbar-thumb
-    {
-      background-color: mix($value, #000000, 80%);
-    }
-
-    header {
-      background-color: $value;
-    }
-  }
+  background-color: $dark-color;
+  color: $light-color;
 }
 
 img {
@@ -65,6 +48,15 @@ a {
 }
 
 .view {
+  max-width: $view-max-width;
+  margin: 80px auto 40px;
+
+  @media screen and (max-width: 600px){
+    margin-top: 40px;
+  }
+}
+
+.view-no-flex {
   max-width: $view-max-width;
   margin: 80px auto 40px;
 }

@@ -3,7 +3,7 @@
     <section class="hero">
       <span>Yet another</span>
       <h1>Web Developer.</h1>
-      <c-btn primary>提供工作机会</c-btn>
+      <c-btn style="width: 140px" primary to="/about">提供工作机会</c-btn>
     </section>
 
     <section class="nav-cards">
@@ -17,13 +17,13 @@
         class="nav-card"
         title="作品"
         detail="可能有趣的实验性项目、设计和原型收集箱"
-        to="/articles"
+        to="/works"
       ></nav-card>
       <nav-card
         class="nav-card"
         title="关于"
         detail="了解我的技能和履历，提供可能的工作机会"
-        to="/articles"
+        to="/about"
       ></nav-card>
     </section>
   </div>
@@ -33,7 +33,10 @@
   import CBtn from '../components/Button'
   import NavCard from '../components/NavCard'
   export default {
-    components: { NavCard, CBtn }
+    components: { NavCard, CBtn },
+    computed: {
+
+    }
   }
 </script>
 
@@ -63,6 +66,41 @@
 
       .nav-card:not(:last-child) {
         margin-right: 2rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: 810px) {
+    .view-full-page {
+      height: auto;
+      overflow-x: hidden;
+      overflow-y: auto;
+      display: block;
+
+      .hero {
+        width: 80vw;
+        margin: 15vh auto;
+        text-align: left;
+        box-sizing: border-box;
+
+        h1 {
+          font-size: 2.5rem;
+          margin-top: 1rem;
+          line-height: 1;
+        }
+      }
+
+      .nav-cards {
+        flex-direction: column;
+        width: 80vw;
+        align-items: center;
+        justify-content: center;
+
+        .nav-card {
+          margin-right: 0 !important;
+          margin-top: 1rem;
+          box-sizing: border-box;
+        }
       }
     }
   }

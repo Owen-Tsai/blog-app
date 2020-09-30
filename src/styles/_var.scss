@@ -1,10 +1,18 @@
-$header-height: 60px;
-$view-max-width: 1100px;
-$card-height: 260px;
+/*
+  variables used across application
+  and functions related to theming
+*/
 
-$themes: (
-  "white": #ffffff,
-  "russian-green": #698f5f,
-  "light-french-beige": #c8af80,
-  "middle-red": #ed917a
-);
+// app layout
+$header-height: 60px;
+$view-max-width: 1000px;
+$aside-width: 240px;
+
+// colors
+$dark-color: #121619;
+$light-color: #f7f7ff;
+$white-color: #ffffff;
+$error-color: #EF3e36;
+$success-color: #058c42;
+
+$card-height: 304px;

@@ -28,13 +28,14 @@
 
 <style lang="scss" scoped>
   @import "../styles/hover";
+  @import "../styles/var";
 
   .c-nav-card {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    border: 2px solid #000000;
+    border: 2px solid $dark-color;
     padding: 1.25rem;
     cursor: pointer;
     width: 100%;
@@ -49,6 +50,14 @@
       display: block;
       width: 100%;
       text-align: right;
+    }
+  }
+
+
+  body[data-theme="dark"] {
+    .c-nav-card {
+      border: 2px solid $light-color;
+      @include shadow-hover-dark;
     }
   }
 </style>

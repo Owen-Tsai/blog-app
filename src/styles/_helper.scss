@@ -1,0 +1,19 @@
+@import "var";
+
+.hidden-on-mobile {
+  @media screen and (max-width: 600px) {
+    display: none !important;
+  }
+}
+
+.hidden-on-tablet {
+  @media screen and (max-width: 810px) {
+    display: none !important;
+  }
+}
+
+.hidden-on-desktop {
+  @media screen and (min-width: 811px) {
+    display: none !important;
+  }
+}

@@ -4,7 +4,7 @@
     <div class="tags">
       <c-tag
         v-for="(tag, i) in tags" :key="`tag-${i}`"
-      >{{ tag }}</c-tag>
+      >{{ tag.name }}</c-tag>
     </div>
   </div>
 </template>
@@ -34,14 +34,15 @@
 
 <style lang="scss" scoped>
   @import "../styles/hover";
+  @import "../styles/var";
 
   .c-article-card {
-    border: 2px solid #000000;
+    border: 2px solid $dark-color;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     padding: 2rem;
-    height: 280px;
+    height: $card-height;
     cursor: pointer;
     box-sizing: border-box;
     overflow: hidden;
@@ -54,6 +55,13 @@
 
     .tags > .c-tag {
       margin-right: 6px;
+    }
+  }
+
+  body[data-theme="dark"] {
+    .c-article-card {
+      border: 2px solid $light-color;
+      @include shadow-hover-dark;
     }
   }
 </style>
