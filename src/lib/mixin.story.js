@@ -33,7 +33,8 @@ export default {
         this.$nextTick(() => {
           const links = document.querySelectorAll('aside .toc a')
           links.forEach(link => {
-            link.setAttribute('data-anchor', link.getAttribute('href'))
+            let decoded = decodeURIComponent(link.getAttribute('href'))
+            link.setAttribute('data-anchor', decoded)
             link.removeAttribute('href')
 
             link.addEventListener('click', () => {

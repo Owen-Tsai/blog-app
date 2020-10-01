@@ -18,12 +18,12 @@ body[data-theme="dark"] {
   {
     width: 6px;
     height: 6px;
-    background-color: $light-color;
+    background-color: $dark-color;
   }
 
   *::-webkit-scrollbar-thumb, &::-webkit-scrollbar-thumb
   {
-    background-color: mix($dark-color, $light-color, 80%);
+    background-color: mix($dark-color, $light-color, 60%);
   }
 }
 

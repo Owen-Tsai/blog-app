@@ -14,6 +14,12 @@
   }
 }
 
+body[data-theme="dark"] {
+  .preview-area {
+    @include article-content-dark;
+  }
+}
+
 
 .editor-toolbar {
   height: 60px;
