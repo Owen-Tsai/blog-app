@@ -27,7 +27,7 @@ const routes = [
   {
     path: '/articles/:id',
     name: 'article-content',
-    component: () => import(/* webpackChunkName: "content" */ '../views/Story.vue')
+    component: () => import(/* webpackChunkName: "story" */ '../views/Story.vue')
   },
   {
     path: '/works',
@@ -37,7 +37,7 @@ const routes = [
   {
     path: '/works/:id',
     name: 'works-content',
-    component: () => import(/* webpackChunkName: "content" */ '../views/Story.vue')
+    component: () => import(/* webpackChunkName: "story" */ '../views/Story.vue')
   },
   {
     path: '/create-article',

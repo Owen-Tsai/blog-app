@@ -26,6 +26,7 @@
   position: sticky;
   top: 60px;
   z-index: 99;
+  background-color: $light-color;
 
   .left {
     display: flex;
@@ -85,6 +86,7 @@
 body[data-theme="dark"] {
   .editor-toolbar {
     border-color: $light-color;
+    background-color: $dark-color;
   }
   .image-bed {
     background-color: $dark-color;

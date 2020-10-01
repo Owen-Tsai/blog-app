@@ -53,6 +53,7 @@
     background-color: mix($dark-color, $light-color, 92%);
     color: $light-color;
     padding: 1rem;
+    overflow-x: scroll;
 
     code {
       background-color: unset;
