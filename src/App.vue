@@ -6,7 +6,7 @@
       <router-view></router-view>
     </transition>
     <c-tab-bar class="hidden-on-desktop"></c-tab-bar>
-    <c-fab primary to="/y/" v-if="authenticated">
+    <c-fab primary to="/y/" v-if="authenticated && isNotCreateView">
       <dashboard-20></dashboard-20>
     </c-fab>
   </div>
@@ -36,6 +36,9 @@
         set(val) {
           this.authenticated = val
         }
+      },
+      isNotCreateView() {
+        return !this.$route.name.includes('create')
       }
     },
     methods: {

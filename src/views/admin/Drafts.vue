@@ -17,7 +17,7 @@
         <td>{{ item.title }}</td>
         <td>{{ item.update_time }}</td>
         <td class="center">
-          <c-btn primary small style="margin-right: 10px" :to="`/create?draft=${item.id}`">继续编辑</c-btn>
+          <c-btn primary small style="margin-right: 10px" :to="`/create-article?draft=${item.id}`">继续编辑</c-btn>
           <c-btn small>废除</c-btn>
         </td>
       </tr>

@@ -77,8 +77,9 @@
     }),
     methods: {
       handleScroll(e) {
+        console.log(e.deltaY)
         let delta = e.deltaY
-        this.$refs.status.scrollLeft += (delta / 5)
+        this.$refs.status.scrollLeft += delta
         e.preventDefault();
       }
     }

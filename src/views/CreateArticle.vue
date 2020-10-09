@@ -7,7 +7,8 @@
           <input type="text" v-model="story.title">
         </label>
         <div class="controls">
-          <c-btn primary @click="publishArticle">发布</c-btn>
+          <c-btn primary @click="publishArticle" v-if="!updateInstead">发布</c-btn>
+          <c-btn primary @click="updateArticle" v-else>更新</c-btn>
           <c-btn @click="saveAsDraft">保存</c-btn>
         </div>
       </div>
@@ -62,6 +63,8 @@
     ],
     data: () => ({
       mode: 0,
+      updateInstead: false,
+      param: -1,
 
       story:{
         title: '',
@@ -87,8 +90,6 @@
       publishArticle() {
         this.parseMeta()
 
-        console.log(this.story)
-
         requests.post(`/api/articles/`, {
           title: this.story.title,
           tags: this.story.tags,
@@ -102,12 +103,30 @@
           console.log(error)
         })
       },
+      updateArticle() {
+        this.parseMeta()
+
+        requests.put(`/api/articles/${this.param}/`, {
+          title: this.story.title,
+          tags: this.story.tags,
+          content: this.story.content
+        }, () => {
+          this.$msg({
+            message: 'Story Updated',
+            duration: 2000
+          })
+        }, error => {
+          console.log(error)
+        })
+      },
       parseRouterParam() {
         const param = this.$route.query
         if(param && param['draft']) {
           this.loadDraftToEditor(param['draft'])
         } else if(param && param['article']) {
           this.loadArticleToEditor(param['article'])
+          this.updateInstead = true
+          this.param = param
         }
       },
       loadDraftToEditor(id) {

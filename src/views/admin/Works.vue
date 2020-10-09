@@ -24,7 +24,10 @@
         <td>{{ works.publish_time }}</td>
         <td>{{ works.views }}</td>
         <td class="center">
-          <c-btn primary small style="margin-right: 10px">编辑</c-btn>
+          <c-btn
+            primary small style="margin-right: 10px"
+            :to="`/create-article?works=${works.id}`"
+          >编辑</c-btn>
           <c-btn small>删除</c-btn>
         </td>
       </tr>

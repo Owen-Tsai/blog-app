@@ -7,7 +7,8 @@
           <input type="text" v-model="story.title">
         </label>
         <div class="controls">
-          <c-btn primary @click="publishWorks">发布</c-btn>
+          <c-btn primary @click="publishWorks" v-if="!updateInstead">发布</c-btn>
+          <c-btn primary @click="updateWorks" v-else>更新</c-btn>
         </div>
       </div>
       <div class="right">
@@ -61,6 +62,8 @@
     ],
     data: () => ({
       mode: 0,
+      updateInstead: false,
+      param: -1,
 
       story:{
         title: '',
@@ -88,10 +91,27 @@
           console.log(error)
         })
       },
+      updateWorks() {
+        this.parseMeta()
+
+        requests.put(`/api/works/${this.param}/`, {
+          title: this.story.title,
+          tags: this.story.tags,
+          content: this.story.content
+        }, () => {
+          this.$msg({
+            message: 'Story Updated',
+            duration: 2000
+          })
+        }, error => {
+          console.log(error)
+        })
+      },
       parseRouterParam() {
         const param = this.$route.query
         if(param && param['works']) {
           this.loadWorksToEditor(param['works'])
+          this.param = param
         }
       },
       loadWorksToEditor(id) {
