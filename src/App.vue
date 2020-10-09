@@ -2,7 +2,9 @@
   <div id="app">
     <nav-bar v-show="!isHomeView" class="hidden-on-tablet"></nav-bar>
     <color-selector class="hidden-on-tablet"></color-selector>
-    <router-view></router-view>
+    <transition name="fade" mode="out-in">
+      <router-view></router-view>
+    </transition>
     <c-tab-bar class="hidden-on-desktop"></c-tab-bar>
     <c-fab primary to="/y/" v-if="authenticated">
       <dashboard-20></dashboard-20>

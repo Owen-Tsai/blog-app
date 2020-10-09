@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@carbon/icons-vue": "^10.17.0",
+    "animateplus": "^2.1.1",
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
     "gsap": "^3.5.1",

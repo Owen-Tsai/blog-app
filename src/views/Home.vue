@@ -3,7 +3,7 @@
     <section class="hero">
       <span>Yet another</span>
       <h1>Web Developer.</h1>
-      <c-btn style="width: 140px" primary to="/about">提供工作机会</c-btn>
+      <c-btn class="cta" style="width: 140px" primary to="/about">提供工作机会</c-btn>
     </section>
 
     <section class="nav-cards">
@@ -32,10 +32,37 @@
 <script>
   import CBtn from '../components/Button'
   import NavCard from '../components/NavCard'
+  import animate from 'animateplus/animateplus'
+
   export default {
     components: { NavCard, CBtn },
     computed: {
 
+    },
+    methods: {
+      initAnimation() {
+        const play = async () => {
+          await animate({
+            elements: '.hero',
+            opacity: [0, 1],
+            duration: 800,
+            easing: 'linear',
+            delay: 500
+          })
+
+          await animate({
+            elements: '.nav-cards .nav-card',
+            transform: ['scale(0)', 'scale(1)'],
+            duration: 2000,
+            delay: index => (index + 1) * 100,
+          })
+        }
+
+        play()
+      }
+    },
+    mounted () {
+      this.initAnimation()
     }
   }
 </script>
@@ -51,6 +78,7 @@
 
     .hero {
       text-align: center;
+      opacity: 0;
 
       h1 {
         font-size: 3rem;
@@ -63,6 +91,10 @@
       width: 660px;
       margin: 80px auto;
       display: flex;
+
+      .nav-card {
+        transform: scale(0);
+      }
 
       .nav-card:not(:last-child) {
         margin-right: 2rem;
