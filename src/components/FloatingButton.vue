@@ -5,12 +5,15 @@
       'primary': primary,
       'absolute': absolute,
     }, `fixed-${position}`]"
+    v-if="!mobile"
     @click="handleClick">
     <slot></slot>
   </button>
 </template>
 
 <script>
+  import { mobileCheck } from '../lib/utls'
+
   export default {
     name: 'CFab',
     props: {
@@ -22,6 +25,11 @@
       },
       absolute: Boolean,
       to: String
+    },
+    computed: {
+      mobile() {
+        return mobileCheck()
+      }
     },
     methods: {
       handleClick(evt) {

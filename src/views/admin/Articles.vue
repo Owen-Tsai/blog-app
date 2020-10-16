@@ -28,7 +28,7 @@
             primary small style="margin-right: 10px"
             :to="`/create-article?article=${article.id}`"
           >编辑</c-btn>
-          <c-btn small>删除</c-btn>
+          <c-btn small @click="deleteArticle(article.id)">删除</c-btn>
         </td>
       </tr>
       </tbody>
@@ -64,6 +64,13 @@
           console.log(error)
         })
       },
+      deleteArticle(id) {
+        requests.delete(`/api/articles/${id}/`, res => {
+          this.loadArticles()
+        }, err => {
+          console.log(err)
+        })
+      }
     },
     mounted () {
       this.loadArticles()

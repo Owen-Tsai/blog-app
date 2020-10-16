@@ -33,6 +33,7 @@
   import CBtn from '../components/Button'
   import NavCard from '../components/NavCard'
   import animate from 'animateplus/animateplus'
+  import { mobileCheck } from '../lib/utls'
 
   export default {
     components: { NavCard, CBtn },
@@ -62,7 +63,9 @@
       }
     },
     mounted () {
-      this.initAnimation()
+      if(!mobileCheck()) {
+        this.initAnimation()
+      }
     }
   }
 </script>
@@ -114,6 +117,7 @@
         margin: 15vh auto;
         text-align: left;
         box-sizing: border-box;
+        opacity: 1;
 
         h1 {
           font-size: 2.5rem;
@@ -132,6 +136,7 @@
           margin-right: 0 !important;
           margin-top: 1rem;
           box-sizing: border-box;
+          transform: scale(1);
         }
       }
     }

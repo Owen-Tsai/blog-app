@@ -18,7 +18,7 @@
         <td>{{ item.update_time }}</td>
         <td class="center">
           <c-btn primary small style="margin-right: 10px" :to="`/create-article?draft=${item.id}`">继续编辑</c-btn>
-          <c-btn small>废除</c-btn>
+          <c-btn small @click="deleteDraft(item.id)">废除</c-btn>
         </td>
       </tr>
       </tbody>
@@ -51,6 +51,13 @@
           this.totalCount = res.data.count
         }, error => {
           console.log(error)
+        })
+      },
+      deleteDraft(id) {
+        requests.delete(`/api/drafts/${id}/`, res => {
+          this.loadDrafts()
+        }, err => {
+          console.log(err)
         })
       }
     },

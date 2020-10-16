@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const DEBUG = true
+const DEBUG = false
 const enableLanNetwork = false
 const lanIP = 'http://192.168.137.173'
 

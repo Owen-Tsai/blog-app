@@ -28,7 +28,7 @@
             primary small style="margin-right: 10px"
             :to="`/create-article?works=${works.id}`"
           >编辑</c-btn>
-          <c-btn small>删除</c-btn>
+          <c-btn small @click="deleteWorks(works.id)">删除</c-btn>
         </td>
       </tr>
       </tbody>
@@ -64,6 +64,13 @@
           console.log(error)
         })
       },
+      deleteWorks(id) {
+        requests.delete(`/api/works/${id}/`, res => {
+          this.loadWorks()
+        }, err => {
+          console.log(err)
+        })
+      }
     }
   }
 </script>

@@ -24,7 +24,7 @@ body {
   }
 
   *::-webkit-scrollbar-thumb, &::-webkit-scrollbar-thumb {
-    background-color: mix($dark-color, $light-color, 80%);
+    background-color: mix($dark-color, $light-color, 60%);
   }
 }
 
@@ -60,4 +60,8 @@ a {
 .view-no-flex {
   max-width: $view-max-width;
   margin: 80px auto 40px;
+}
+
+.katex .vlist {
+  vertical-align: unset !important;
 }
