@@ -94,7 +94,7 @@
       updateWorks() {
         this.parseMeta()
 
-        requests.put(`/api/works/${this.param}/`, {
+        requests.put(`/api/works/${this.param['works']}/`, {
           title: this.story.title,
           tags: this.story.tags,
           content: this.story.content

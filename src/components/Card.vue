@@ -54,7 +54,8 @@
     }
 
     .tags > .c-tag {
-      margin-right: 6px;
+      margin-right: 4px;
+      margin-bottom: 4px;
     }
   }
 

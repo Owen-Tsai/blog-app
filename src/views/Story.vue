@@ -41,7 +41,6 @@
   import StoryMixin from '../lib/mixin.story'
   import { requests } from '../lib/requests'
   import CLoader from '../components/Loader'
-  import { scrollToNode } from '../lib/utls'
 
   export default {
     components: { CLoader, CTag },

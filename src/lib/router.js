@@ -37,7 +37,7 @@ const routes = [
   {
     path: '/works/:id',
     name: 'works-content',
-    component: () => import(/* webpackChunkName: "story" */ '../views/Story.vue')
+    component: () => import(/* webpackChunkName: "story" */ '../views/Work.vue')
   },
   {
     path: '/create-article',

@@ -6,12 +6,12 @@ Vue.use(Viewer, {
   defaultOptions: {
     button: false,
     toolbar: false,
-    tooltip: false,
-    zoomable: false,
+    tooltip: true,
+    zoomable: true,
     navbar: false,
     title: false,
     rotatable: false,
     scalable: false,
-    movable: false
+    movable: true
   }
 })

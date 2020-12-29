@@ -38,6 +38,7 @@
       style="margin-top: 1rem"
       :total-count="totalCount"
       v-model="page"
+      @change="loadArticles"
     ></c-pagination>
   </div>
 </template>

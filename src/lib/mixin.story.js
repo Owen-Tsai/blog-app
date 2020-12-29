@@ -9,6 +9,19 @@ export default {
     loading: true,
     toc: ''
   }),
+  watch: {
+    $route(to, from) {
+      if(from !== to) {
+        const id = to.params.id
+        if(id) {
+          this.getStory(id);
+          this.initRenderer();
+          this.initRenderPlugins();
+          this.loading = true;
+        }
+      }
+    }
+  },
   methods: {
     render(raw) {
       if(!this.renderer) {

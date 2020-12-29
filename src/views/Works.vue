@@ -29,6 +29,7 @@
           :title="works.title"
           :tags="works.tags"
           :id="works.id"
+          type="works"
         ></c-card>
       </div>
 

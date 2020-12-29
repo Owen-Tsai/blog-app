@@ -106,7 +106,7 @@
       updateArticle() {
         this.parseMeta()
 
-        requests.put(`/api/articles/${this.param}/`, {
+        requests.put(`/api/articles/${this.param['article']}/`, {
           title: this.story.title,
           tags: this.story.tags,
           content: this.story.content

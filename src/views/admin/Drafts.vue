@@ -27,6 +27,8 @@
     <c-pagination
       style="margin-top: 1rem"
       :total-count="5"
+      v-model="page"
+      @change="loadDrafts"
     ></c-pagination>
   </div>
 </template>

@@ -18,7 +18,7 @@
         <p>我也玩电子游戏，从最著名的系列到独立作品都会尝试。</p>
       </div>
 
-      <div class="recent-status" @wheel="handleScroll" ref="status">
+      <div class="recent-status" ref="status">
         <div class="items-container">
           <div class="item">
             <p>最近正在读</p>
@@ -75,14 +75,6 @@
     data: () => ({
       status: status
     }),
-    methods: {
-      handleScroll(e) {
-        console.log(e.deltaY)
-        let delta = e.deltaY
-        this.$refs.status.scrollLeft += delta
-        e.preventDefault();
-      }
-    }
   }
 </script>
 
