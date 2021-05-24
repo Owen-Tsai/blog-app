@@ -1,18 +1,17 @@
 [
   {
-    "title": "YoUI",
-    "date": "2020.9 - ",
+    "title": "Salmon UI",
+    "date": "2021.1 - ",
     "role": "设计 / 开发",
     "tags": ["Vue.js"],
     "intro": "遵循简洁、流畅、自然的设计语言和原创的设计系统，实现的 Vue 3 用户界面组件库",
     "duties": [
-      "参考 Ant Design、Material Design 和 Carbon Design 等成熟的设计体系，初步实现了 Yo Design 设计系统",
-      "在 Yo Design 的基础上，设计了包含按钮、表单组件、对话框等常用的交互元件",
-      "基于全新的 Vue.js 3.x 版本开发了 YoUI 组件库"
+      "参考 Ant Design、Material Design 和 Carbon Design 等成熟的设计体系，初步实现了 Salmon Design 设计系统",
+      "基于全新的 Vue.js 3.x 版本开发 SalmonUI 组件库"
     ]
   },
   {
-    "title": "Envision",
+    "title": "Envision [软件著作权]",
     "date": "2018.6 - 2019.2",
     "role": "策划 / 前端开发 / 后端开发",
     "tags": ["Vue.js", "Django"],
@@ -25,7 +24,7 @@
     ]
   },
   {
-    "title": "远程自动化3D教学平台",
+    "title": "远程自动化3D教学平台 [软件著作权]",
     "date": "2018.12 - 2019.6",
     "role": "项目负责人 / 主程序",
     "tags": ["Unity", "Matlab", "Simulink", "C#"],
@@ -38,9 +37,9 @@
   },
   {
     "title": "国家海外人才离岸创新创业基地服务平台",
-    "date": "2020.11 - 2020.12",
+    "date": "2020.11 - 2021.1",
     "role": "前端开发 / UI设计",
-    "tags": ["Vue.js"],
+    "tags": ["Vue.js", "Figma"],
     "intro": "为济南国家海外人才离岸创新创业基地开发的、以官网为载体搭载多项服务的服务 Web应用",
     "duties": [
       "设计以 Vue.js 为主框架的前端架构，逐步形成一套可复用的团队Web组件库",
@@ -114,6 +113,17 @@
     "duties": [
       "完成了掌上”微官网“的开发",
       "完成了人才管理平台引进人才申报、人才公寓申请、创新创业精英申报、骨干企业精英申报等功能模块的申报、审核模块的视图与功能的开发"
+    ]
+  },
+  {
+    "title": "济南市市中区经济困难学生资助申请审批系统",
+    "date": "2020.11 - 2021.1",
+    "role": "UI设计 / 前端开发",
+    "tags": ["Bootstrap", "jQuery", "Figma"],
+    "intro": "为济南市市中区教育局开发的用于义务教育阶段经济困难家庭补助线上申请/审批的系统",
+    "duties": [
+      "完成了申请系统和审批系统的界面设计",
+      "使用 Bootstrap 和 jQuery 完成了申请系统和审批系统的前端逻辑"
     ]
   }
 ]

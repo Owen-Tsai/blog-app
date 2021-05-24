@@ -58,7 +58,7 @@
     }),
     methods: {
       loadWorks() {
-        requests.get(`/api/works?page=${page}`, res => {
+        requests.get(`/api/works?page=${this.page}`, res => {
           this.worksList = res.data.results
           this.totalCount = res.data.count
         }, error => {
@@ -72,6 +72,9 @@
           console.log(err)
         })
       }
+    },
+    mounted() {
+      this.loadWorks()
     }
   }
 </script>

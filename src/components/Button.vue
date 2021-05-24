@@ -36,7 +36,7 @@
 <style lang="scss" scoped>
   @import "../styles/var";
 
-  $hover-color: lighten($dark-color, 10%);
+  $hover-color: lighten($dark-color, 20%);
   $hover-color-dark: mix($light-color, $dark-color, 90%);
 
   .btn {

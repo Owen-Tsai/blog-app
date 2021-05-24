@@ -26,7 +26,7 @@
 
     <c-pagination
       style="margin-top: 1rem"
-      :total-count="5"
+      :total-count="totalCount"
       v-model="page"
       @change="loadDrafts"
     ></c-pagination>
